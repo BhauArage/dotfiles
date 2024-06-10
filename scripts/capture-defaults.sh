@@ -54,7 +54,10 @@ app_array=(
   'com.apple.controlcenter'
   'com.apple.dock'
   'com.apple.finder'
+<<<<<<< HEAD
   'com.apple.iclouddrive.features'
+=======
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
   'com.apple.menuextra.battery'
   'com.apple.menuextra.clock'
   'com.apple.screensaver'

@@ -41,10 +41,10 @@ brew 'direnv'   # Note: If you get an error (for eg after upgrading direnv or if
 # brew 'docker-slim'  # TODO: investigate if the http-probe is a deal-breaker
 # brew 'fzy'
 # brew 'git-crypt'
+brew 'git'
 brew 'git-extras'
 brew 'git-gui'
 brew 'git-tools'
-brew 'git'
 # brew 'gradle'
 # brew 'gradle-completion'
 # brew 'hadolint'     # lint Dockerfiles (similar to shellcheck for shell scripts)
@@ -90,19 +90,18 @@ cask 'cloudflare-warp'
 cask 'command-x'
 # cask 'dbeaver-community'
 # cask 'dupeguru'
-cask 'firefox@nightly' #, greedy: true
 cask 'flycut'
 cask 'font-meslo-lg-nerd-font'
 # cask 'git-credential-manager'  # https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
 # cask 'intellij-idea-ce'
-cask 'iterm2@nightly'
+cask 'iterm2@beta'
 cask 'itsycal'
 # cask 'kdiff3'
 cask 'keepassxc@beta'
 cask 'keepingyouawake'
 cask 'keybase'
 # cask 'keycastr'
-cask 'libreoffice'
+# cask 'libreoffice'
 # cask 'licecap'
 # cask 'lulu'
 cask 'monolingual'
@@ -117,7 +116,7 @@ cask 'silicon' if is_arm
 cask 'stats'
 # cask 'tempbox'
 cask 'the-unarchiver'
-cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
+# cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
 cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when comparing to VSCode
 cask 'zoom'
 

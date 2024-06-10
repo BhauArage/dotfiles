@@ -5,7 +5,11 @@
 # file location: <anywhere> (just need to invoke it from that location)
 
 # You can run this script using this command:
+<<<<<<< HEAD
 # curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx.sh | zsh
+=======
+# curl -L https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx.sh | zsh
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
 # BEFORE STARTING TO RUN THIS SCRIPT (for the first time on a new machine)
 # 1. Login into Apple App store
@@ -14,6 +18,7 @@
 # 4. Turn off battery from showing in the Control Center (nice to have especially if you end up with the Stats app)
 # 5. Change the built-in clock to show as analog to save horizontal space in the Control Center via System Preferences
 
+<<<<<<< HEAD
 # TODO: Need to figure out the settings for the following:
 #    1) Dock: Items with order (not capturing binary data - since that is dependent on installed apps)
 #    2) Security & Privacy Preferences: Full Disk Access, Camera, Microphone
@@ -31,6 +36,63 @@ USERNAME="${USERNAME:-$(whoami)}"
 FIRST_INSTALL=true
 [ ! -f "${HOME}/.shellrc" ] && curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/files/.shellrc -o "${HOME}/.shellrc"
 type load_file_if_exists &> /dev/null 2>&1 || source "${HOME}/.shellrc"
+=======
+# These env vars are defined by (duplicated intentionally) since this script would bootstrap the installation
+USERNAME="${USERNAME:-$(whoami)}"
+
+# utility functions
+load_file_if_exists() {
+  # shellcheck disable=SC2015
+  # shellcheck disable=SC1090
+  test -e "${1}" && source "${1}" || true
+}
+
+command_exists() {
+  type "${1}" &> /dev/null 2>&1
+}
+
+NC='\033[0m' # No Color
+BLACK='\033[0;30m'
+DARK_GRAY='\033[1;30m'
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+GREEN='\033[0;32m'
+LIGHT_GREEN='\033[1;32m'
+ORANGE='\033[0;33m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+LIGHT_BLUE='\033[1;34m'
+PURPLE='\033[0;35m'
+LIGHT_PURPLE='\033[1;35m'
+CYAN='\033[0;36m'
+LIGHT_CYAN='\033[1;36m'
+LIGHT_GRAY='\033[0;37m'
+WHITE='\033[1;37m'
+
+blue() {
+  printf "${LIGHT_BLUE}${1}${NC}"
+}
+
+cyan() {
+  printf "${LIGHT_CYAN}${1}${NC}"
+}
+
+green() {
+  printf "${GREEN}${1}${NC}"
+}
+
+red() {
+  printf "${RED}${1}${NC}"
+}
+
+yellow() {
+  printf "${YELLOW}${1}${NC}"
+}
+
+warn() (
+  echo "$(yellow "**WARN** ${1}")"
+)
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
 ######################################################################################################################
 # Set DNS of 8.8.8.8 before proceeding (in some cases, for eg Jio Wifi, github doesn't resolve at all and times out) #
@@ -142,7 +204,16 @@ if [ ! -d "${DOTFILES_DIR}" ]; then
 
   # Load all zsh config files for PATH and other env vars to take effect
   # Note: Can't run 'exec zsh' here - since the previous function definitions and PATH, etc will be lost in the sub-shell
+<<<<<<< HEAD
   load_zsh_configs
+=======
+  # custom env var to enable logging only during the first installation process
+  FIRST_INSTALL=true
+  file_list=('.zshenv' '.zprofile' '.shellrc' '.zshrc' '.zlogin')
+  for file in "${file_list[@]}"; do
+    load_file_if_exists "${HOME}/${file}"
+  done
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 else
   warn "skipping cloning the dotfiles repo since '${DOTFILES_DIR}' is already present"
 fi
@@ -160,7 +231,12 @@ if [ $? -ne 0 ]; then
 
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+<<<<<<< HEAD
   eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+=======
+  # Temporarily add brew to the PATH (works for both arm and intel macs)
+  PATH="/opt/homebrew/bin:/usr/local/bin:${PATH+:${PATH}}"
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 else
   warn "Skipping installation of homebrew since it's already installed"
 fi
@@ -171,7 +247,11 @@ brew bundle check || brew bundle --all || true
 ###################################
 echo "$(green "==> Installing iTerm shell integration")"
 if [ -e "/Applications/iTerm.app" ]; then
+<<<<<<< HEAD
   curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+=======
+  curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 else
   warn "Skipping installation of iterm shell integration since iterm is not installed"
 fi
@@ -203,8 +283,11 @@ elif [ -d "/Applications/VSCodium.app" ]; then
 elif [ -d "/Applications/VSCode.app" ]; then
   # Symlink from the embedded executable for code
   replace_executable_if_exists_and_is_not_symlinked "/Applications/VSCode.app/Contents/Resources/app/bin/code" "${HOMEBREW_PREFIX}/bin/code"
+<<<<<<< HEAD
 else
   warn "Skipping symlinking vscode/vscodium for command-line invocation"
+=======
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 fi
 
 # Setup rider for use from the cmd-line

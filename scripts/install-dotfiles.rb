@@ -17,7 +17,11 @@ require 'fileutils'
 require 'find'
 
 def override_into_home_folder(file, dotfiles_dir_length, copy_instead_of_symlink)
+<<<<<<< HEAD
   target_file_name = File.join(ENV["HOME"], file[dotfiles_dir_length..-1])
+=======
+  target_file_name = File.join(ENV["HOME"], file[dotfiles_dir_length..])
+>>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
   puts "Processing #{file.yellow} --> #{target_file_name.yellow}"
 
