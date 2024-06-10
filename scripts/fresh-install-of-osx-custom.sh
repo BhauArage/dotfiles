@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-<<<<<<< HEAD
 # Note: This script is specific to my setup and might not be useful for others. This is being shared so as to be used as a reference if you want to mimic the same setup.
 
 # You can run this script using this command:
@@ -18,27 +17,10 @@ PERSONAL_CONFIGS_DIR="${PERSONAL_CONFIGS_DIR:-"${HOME}/personal/dev"}"
 # Load all zsh config files for PATH and other env vars to take effect
 # Note: Can't run 'exec zsh' here - since the previous function definitions and PATH, etc will be lost in the sub-shell
 load_zsh_configs
-=======
-# Note: This script is specific to my setup and might not useful for others. This is being shared so as to be used as a reference if you want to mimic the same setup.
-
-# You can run this script using this command:
-# curl -L https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx-custom.sh | zsh
-
-# These env vars are duplicated intentionally since this script would bootstrap the installation
-USERNAME="${USERNAME:-$(whoami)}"
-
-# custom env var to enable logging only during the first installation process
-FIRST_INSTALL=true
-# load the PATH & utility functions and other aliases
-source "${HOME}/.zprofile"
-source "${HOME}/.aliases"
-source "${HOME}/.shellrc"
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
 #######################
 # Clone the home repo #
 #######################
-<<<<<<< HEAD
 echo "$(green "==> Cloning home repo")"
 if [ ! -d "${HOME}/.git" ]; then
   rm -rf "${HOME}/tmp"
@@ -57,28 +39,11 @@ if [ ! -d "${HOME}/.git" ]; then
   sudo cp "${PERSONAL_BIN_DIR}/macos/etc.hosts" /etc/hosts
 else
   warn "skipping cloning of home repo since a git repo is already present in '${HOME}'"
-=======
-echo "$(green "==> Loading home repo")"
-if [ ! -d "${HOME}/.git" ]; then
-  rm -rf "${HOME}/tmp"
-  mkdir -p "${HOME}/tmp"
-  git clone keybase://private/avijayr/home "${HOME}/tmp"
-  mv "${HOME}/tmp/.git" "${HOME}/"
-  rm -rf "${HOME}/tmp"
-
-  ######################################################################################################
-  # Checkout files (these should not have any modifications/conflicts with what is in the remote repo) #
-  ######################################################################################################
-  git -C "${HOME}" checkout ".[a-zA-Z]*" personal
-else
-  warn 'skipping cloning of home repo since its already present'
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 fi
 
 ###########################
 # Clone the profiles repo #
 ###########################
-<<<<<<< HEAD
 echo "$(green "==> Cloning profiles repo")"
 if [ ! -d "${PERSONAL_PROFILES_DIR}/.git" ]; then
   rm -rf "${PERSONAL_PROFILES_DIR}"
@@ -87,37 +52,10 @@ else
   warn "skipping cloning of profiles repo since a git repo is already present in '${PERSONAL_PROFILES_DIR}'"
 fi
 
-=======
-echo "$(green "==> Loading profiles repo")"
-PERSONAL_PROFILES_DIR="${PERSONAL_PROFILES_DIR:-"${HOME}/personal/${USERNAME}/profiles"}"
-if [ ! -d "${PERSONAL_PROFILES_DIR}/.git" ]; then
-  rm -rf "${PERSONAL_PROFILES_DIR}"
-  git clone keybase://private/avijayr/profiles "${PERSONAL_PROFILES_DIR}"
-else
-  warn 'skipping cloning of profiles repo since its already present'
-fi
-
-#########################################
-# Fix /etc/hosts file to block facebook #
-#########################################
-echo "$(green "==> Fixing hosts file")"
-PERSONAL_BIN_DIR="${PERSONAL_BIN_DIR:-"${HOME}/.bin"}"
-sudo cp "${PERSONAL_BIN_DIR}/macos/etc.hosts" /etc/hosts
-
-############################################################################
-# Reset ssh keys' permissions so that git doesn't complain when using them #
-############################################################################
-sudo chmod -R 600 "${HOME}"/.ssh/*
-
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 ##################################################
 # Resurrect repositories that I am interested in #
 ##################################################
 echo "$(green "==> Resurrecting repos")"
-<<<<<<< HEAD
-=======
-PERSONAL_CONFIGS_DIR="${PERSONAL_CONFIGS_DIR:-"${HOME}/personal/dev"}"
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 for file in $(ls "${PERSONAL_CONFIGS_DIR}"/repositories-*.yml); do
   resurrect-repositories.rb -r "${file}"
 done
@@ -129,10 +67,7 @@ echo "$(green "==> Running post-clone operations")"
 all restore-mtime -c
 allow_all_direnv_configs
 install_mise_versions
-<<<<<<< HEAD
 rm -rf "${HOME}/.ssh/known_hosts.old"
-=======
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
 ##################
 # Install devbox #
@@ -149,11 +84,7 @@ cd -
 ###################################################################
 # Restore the preferences from the older machine into the new one #
 ###################################################################
-<<<<<<< HEAD
 osx-defaults.sh -s
-=======
-osx-defaults.sh -y
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 capture-defaults.sh i
 
 ################################
@@ -164,14 +95,10 @@ rm -rf "${HOME}"/.zcompdump*; compinit
 ###################
 # Setup cron jobs #
 ###################
-<<<<<<< HEAD
 command_exists recron
 if [ $? -eq 0 ]; then
   recron
 fi
-=======
-recron
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 
 # To install the latest versions of the hex, rebar and phoenix packages
 # mix local.hex --force && mix local.rebar --force
@@ -206,11 +133,7 @@ recron
 
 echo "\n"
 echo "$(green "********** Finished auto installation process: Please perform these manual steps **********")"
-<<<<<<< HEAD
 echo "$(red "1. Go to VSCodium > Command Palette (Cmd+Shift+P) > Sync: Download Settings")"
-=======
-echo "$(red "1. Go to VSCodium > Command Palette (Cmd+Shift+P) > Sync Settings: Download (repository -> user)")"
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 echo "$(red "2. Manually setup the Finder preferences for sidebar")"
 echo "$(red "3. Login into iCloud and setup Desktop sync")"
 echo "$(red "4. Login for Software Update to different ID (after iCloud login) for beta updates")"

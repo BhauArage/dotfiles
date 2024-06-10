@@ -1,47 +1,23 @@
 #!/usr/bin/env bash
 
-<<<<<<< HEAD
-=======
-# TODO: Need to figure out the settings for the following:
-#    1) Dock: Items with order (not capturing binary data - since that is dependent on installed apps)
-#    2) Security & Privacy Preferences: Full Disk Access, Camera, Microphone
-#    3) Login items for my user (i.e. apps started when I login)
-#    4) Retina displays scaling
-#    5) Finder sidebar with order
-
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 ##
 # This is a script with useful tips taken from:
 #   https://gist.github.com/DAddYE/2108403
 #
 # Run in interactive mode with:
-<<<<<<< HEAD
 #   sh -c "$(curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/osx-defaults.sh)"
 #
 # or run it without prompt questions:
 #   sh -c "$(curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/osx-defaults.sh)" -s
 #
 # Please, share your tips by forking the repo and adding your customizations
-=======
-#   $ sh -c "$(curl -sL https://gist.githubusercontent.com/vraravam/5e28ca1720c9dddacdc0e6db61e093fe/raw)"
-#
-# or run it without prompt questions:
-#   $ sh -c "$(curl -sL https://gist.githubusercontent.com/vraravam/5e28ca1720c9dddacdc0e6db61e093fe/raw)" -s silent
-#
-# Please, share your tips commenting here:
-#   https://gist.github.com/vraravam/5e28ca1720c9dddacdc0e6db61e093fe
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 #
 # Author: @vraravam
 # Thanks to: @erikh, @DAddYE, @mathiasbynens
 #
 
 case "${1}" in
-<<<<<<< HEAD
   "-s" | "--silent" )
-=======
-  "-s" | "-y" | "--silent" | "silent" )
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
     echo "Running in silent mode..."
     auto=Y
     shift 1
@@ -742,13 +718,8 @@ if ask "Enable the 2D Dock" N; then
   defaults write com.apple.dock "no-glass" -bool true
 fi
 
-<<<<<<< HEAD
 if ask "Ensable Bouncing dock icons" Y; then
   defaults write com.apple.dock "no-bouncing" -bool false
-=======
-if ask "Disable Bouncing dock icons" N; then
-  defaults write com.apple.dock "no-bouncing" -bool true
->>>>>>> 2dbbf0c (Initial commit on Mon Jun 10 11:59:27 IST 2024)
 fi
 
 if ask "Disable multi-display swoosh animations" N; then
