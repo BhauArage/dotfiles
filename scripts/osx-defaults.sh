@@ -5,10 +5,10 @@
 #   https://gist.github.com/DAddYE/2108403
 #
 # Run in interactive mode with:
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/osx-defaults.sh)"
+#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/BhauArage/dotfiles/master/scripts/osx-defaults.sh)"
 #
 # or run it without prompt questions:
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/osx-defaults.sh)" -s
+#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/BhauArage/dotfiles/master/scripts/osx-defaults.sh)" -s
 #
 # Please, share your tips by forking the repo and adding your customizations
 #

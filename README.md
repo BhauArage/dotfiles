@@ -4,17 +4,17 @@ This repo was created from the gists that I was using to help others adopt my ma
 
 # Generic/Common Getting started
 
-The meta script to setup the macos machine from a vanilla OS can be run using the following command: `curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx.sh | zsh`
+The meta script to setup the macos machine from a vanilla OS can be run using the following command: `curl -fsSL https://raw.githubusercontent.com/BhauArage/dotfiles/master/scripts/fresh-install-of-osx.sh | zsh`
 This can be run in an idempotent manner, and will setup oh-my-zsh, homebrew, the dotfiles, etc
 
 # Advanced setup
 
-The meta script to setup the macos machine AFTER the generic script has been run, can be invoked by using the following command: `curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx-custom.sh | zsh`
+The meta script to setup the macos machine AFTER the generic script has been run, can be invoked by using the following command: `curl -fsSL https://raw.githubusercontent.com/BhauArage/dotfiles/master/scripts/fresh-install-of-osx-custom.sh | zsh`
 This can also be run in an idempotent manner, and will setup the home folder repo, the browser profiles, resurrect the repositories that you have created a registry for, install all the languages (each specific version) using mise, apply some OSX defaults (as found in `scripts/osx-defaults.sh`, )
 
 # Finally...
 
-Once the scripts are run, if you want to be able to re-image a new machine, but do not want to repeat the manual steps, you would want to fork my repo, and read through ALL the scripts in the `scripts` folder, and change the pointers that reference my username to your equivalent ones (for eg, you can search for `vraravam`, `avijayr`, `vijay`, `KEYBASE_USERNAME`, `KEYBASE_HOME_REPO_NAME` and `KEYBASE_PROFILES_REPO_NAME` and replace them with your values). Similarly, do the same for the configuration files in the `files` folder as well. Once this is done, and committed into your fork, then the next time you setup, you can run the `curl` command that points to your fork, which should contain your changes on top of mine.
+Once the scripts are run, if you want to be able to re-image a new machine, but do not want to repeat the manual steps, you would want to fork my repo, and read through ALL the scripts in the `scripts` folder, and change the pointers that reference my username to your equivalent ones (for eg, you can search for `BhauArage`, `bhavika`, `bhavika`, `KEYBASE_USERNAME`, `KEYBASE_HOME_REPO_NAME` and `KEYBASE_PROFILES_REPO_NAME` and replace them with your values). Similarly, do the same for the configuration files in the `files` folder as well. Once this is done, and committed into your fork, then the next time you setup, you can run the `curl` command that points to your fork, which should contain your changes on top of mine.
 
 # Extras
 

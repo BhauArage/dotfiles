@@ -48,8 +48,8 @@ crontab -r
 
 # Capture information from pre-existing git repo
 git_url=$(extract_git_config_value remote.origin.url)   # "keybase://private/avijayr/home"
-git_user_name=$(extract_git_config_value user.name)     # "Vijay A"
-git_user_email=$(extract_git_config_value user.email)   # "vraravam@users.noreply.github.com"
+git_user_name=$(extract_git_config_value user.name)     # "BhauArage"
+git_user_email=$(extract_git_config_value user.email)   # "aragebhavika259@gmail.com"
 git_branch_name=$(${git_cmd} branch --show-current)     # "master"
 
 echo "==> Size of repository at '${folder}' before: $(du -sh "${folder}/.git" | cut -f1)"

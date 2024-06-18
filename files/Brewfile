@@ -23,9 +23,6 @@ cask_args appdir: '/Applications', no_quarantine: true
 # java_present = system('/usr/libexec/java_home --failfast')
 is_arm = Hardware::CPU.arm?
 
-# Use my login id to selectively enable certain lines/blocks (kept for reference)
-# is_vijay = `whoami`.chomp == 'vijay'
-
 # tap 'buo/cask-upgrade'
 tap 'romkatv/powerlevel10k'
 # tap 'trailofbits/homebrew-brew-verify'
@@ -77,42 +74,37 @@ brew 'zsh'
 # ----------------------------------------------------------------------------------------------------------
 brew 'mas'
 mas 'iBar-Menubar icon control tool', id: 6443843900
-mas 'Velja', id: 1607635845
+# mas 'Velja', id: 1607635845
 
 # ----------------------------------------------------------------------------------------------------------
 cask 'aldente'
 # cask 'alfred'
 cask 'appcleaner'
-cask 'arc'
-cask 'brave-browser@nightly'
+# cask 'arc'
+# cask 'brave-browser@nightly' # TODO: Browsing with containers is not present - June 2023
 cask 'clocker'
-cask 'cloudflare-warp'
+# cask 'cloudflare-warp'
 cask 'command-x'
 # cask 'dbeaver-community'
 # cask 'dupeguru'
 cask 'flycut'
 cask 'font-meslo-lg-nerd-font'
-# cask 'git-credential-manager'  # https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
-# cask 'intellij-idea-ce'
-cask 'iterm2@beta'
+cask 'google-chrome'
+cask 'intellij-idea-ce'
+cask 'iterm2'
 cask 'itsycal'
-# cask 'kdiff3'
-cask 'keepassxc@beta'
 cask 'keepingyouawake'
-cask 'keybase'
+# cask 'keybase'
 # cask 'keycastr'
 # cask 'libreoffice'
 # cask 'licecap'
 # cask 'lulu'
-cask 'monolingual'
+# cask 'monolingual'
 # cask 'netspot'
 # cask 'ngrok'
-cask 'notunes'
-# cask 'onyx'  # Commented out since I'm on the beta version of macos
-cask 'protonvpn'
 cask 'rancher'
 cask 'rectangle'
-cask 'silicon' if is_arm
+# cask 'silicon' if is_arm
 cask 'stats'
 # cask 'tempbox'
 cask 'the-unarchiver'

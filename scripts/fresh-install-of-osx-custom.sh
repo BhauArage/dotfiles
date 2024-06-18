@@ -3,11 +3,11 @@
 # Note: This script is specific to my setup and might not be useful for others. This is being shared so as to be used as a reference if you want to mimic the same setup.
 
 # You can run this script using this command:
-# curl -fsSL https://raw.githubusercontent.com/vraravam/dotfiles/master/scripts/fresh-install-of-osx-custom.sh | zsh
+# curl -fsSL https://raw.githubusercontent.com/BhauArage/dotfiles/master/scripts/fresh-install-of-osx-custom.sh | zsh
 
 # Note: Change these as per your settings
 USERNAME="${USERNAME:-$(whoami)}"
-KEYBASE_USERNAME="${KEYBASE_USERNAME:-"avijayr"}"
+# KEYBASE_USERNAME="${KEYBASE_USERNAME:-"avijayr"}"
 KEYBASE_HOME_REPO_NAME="${KEYBASE_HOME_REPO_NAME:-"home"}"
 KEYBASE_PROFILES_REPO_NAME="${KEYBASE_PROFILES_REPO_NAME:-"profiles"}"
 PERSONAL_PROFILES_DIR="${PERSONAL_PROFILES_DIR:-"${HOME}/personal/${USERNAME}/profiles"}"
