@@ -23,13 +23,13 @@ export LESSCHARSET='utf-8'
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # Note: Change these as per your settings. Deleting them will essentially unset the var(s) and thus any aliases/paths/etc will not be processed for those deleted variable(s)
-export GH_USERNAME="vraravam"
+export GH_USERNAME="BhauArage"
 export UPSTREAM_GH_USERNAME="vraravam" # Note: Do NOT change this
 export PROJECTS_BASE_DIR="${HOME}/dev"
 export PERSONAL_CONFIGS_DIR="${HOME}/personal/dev"
 export PERSONAL_PROFILES_DIR="${HOME}/personal/$(whoami)/profiles"
 export PERSONAL_BIN_DIR="${HOME}/.bin"
 export DOTFILES_DIR="${HOME}/.bin-oss"
-export KEYBASE_USERNAME="avijayr"
+export KEYBASE_USERNAME="bhavika"
 export KEYBASE_HOME_REPO_NAME="home"
 export KEYBASE_PROFILES_REPO_NAME="profiles"

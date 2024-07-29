@@ -22,10 +22,12 @@ is_arm = Hardware::CPU.arm?
 tap 'homebrew/services'
 tap 'romkatv/powerlevel10k'
 
+brew 'awscli'
 brew 'bash'
 brew 'bat'
 brew 'btop'
 brew 'curl'
+brew 'colima'
 brew 'diff-so-fancy'
 brew 'direnv'
 # brew 'dive'   # docker layers inspection on steroids
@@ -34,10 +36,10 @@ brew 'direnv'
 brew 'eza'
 # brew 'fzy'
 # brew 'git-crypt'
+brew 'git'
 brew 'git-extras'
 brew 'git-gui'
 brew 'git-tools'
-brew 'git'
 # brew 'gradle'
 # brew 'gradle-completion'
 # brew 'hadolint'     # lint Dockerfiles (similar to shellcheck for shell scripts)
@@ -54,6 +56,7 @@ brew 'ncdu'
 # brew 'pkgdiff'
 brew 'powerlevel10k'
 brew 'prettyping'
+brew 'psqlodbc'
 # brew 'reattach-to-user-namespace' # Needed if using tmux (to be able to access the macos clipboard from within tmux)
 brew 'ripgrep'
 brew 'shellcheck'
@@ -73,43 +76,42 @@ mas 'iBar-Menubar icon control tool', id: 6443843900
 # mas 'Command X', id: 6448461551
 
 # ----------------------------------------------------------------------------------------------------------
-cask 'aldente'
+# cask 'aldente'
 # cask 'apparency'
 cask 'appcleaner'
-cask 'arc'
-cask 'brave-browser@nightly'
+# cask 'arc'
+# cask 'brave-browser@nightly' # TODO: Browsing with containers is not present - June 2023
 cask 'clocker'
-cask 'cloudflare-warp'
+# cask 'cloudflare-warp'
 # cask 'dbeaver-community'
 # cask 'dupeguru'
-cask 'firefox@nightly' #, greedy: true
 cask 'font-meslo-lg-nerd-font'
-# cask 'git-credential-manager'  # https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
-# cask 'intellij-idea-ce'
+cask 'google-chrome'
+cask 'insomnia'
+cask 'intellij-idea-ce'
 cask 'iterm2'
-cask 'itsycal'
-# cask 'kdiff3'
-cask 'keepassxc@beta'
-cask 'keepingyouawake'
-cask 'keybase'
+# cask 'itsycal'
+# cask 'keepingyouawake'
+# cask 'keybase'
 # cask 'keycastr'
-cask 'libreoffice'
+# cask 'libreoffice'
 # cask 'licecap'
 # cask 'lulu'
-cask 'monolingual'
+# cask 'monolingual'
 # cask 'netspot'
 # cask 'ngrok'
-cask 'notunes'
-cask 'ollama', restart_service: :changed
+# cask 'notunes'
+# cask 'ollama', restart_service: :changed
 # cask 'onyx'  # Commented out since I'm on the beta version of macos
-cask 'protonvpn'
+cask 'pgadmin4'
+# cask 'protonvpn'
 cask 'rancher'
 cask 'raycast'
 cask 'silicon' if is_arm
 cask 'stats'
 # cask 'tempbox'
 cask 'the-unarchiver'
-cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
+# cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
 cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when comparing to VSCode
 cask 'zoom'
 

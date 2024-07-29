@@ -45,7 +45,6 @@ if command_exists "run_all.sh"; then
   alias home="FOLDER='${HOME}' FILTER=\".bin|zsh|mise|tmux|vscod\" MAXDEPTH=5 rug"
   var_exists_and_is_directory "${PROJECTS_BASE_DIR}/oss" && alias oss="FOLDER='${PROJECTS_BASE_DIR}/oss' rug"
   var_exists_and_is_directory "${PROJECTS_BASE_DIR}/tw" && alias tw="FOLDER='${PROJECTS_BASE_DIR}/tw' rug"
-  var_exists_and_is_directory "${PROJECTS_BASE_DIR}/jd" && alias jd="FOLDER='${PROJECTS_BASE_DIR}/jd' MAXDEPTH=3 rug"
   var_exists_and_is_directory "${PROJECTS_BASE_DIR}" && alias upreb="FOLDER='${PROJECTS_BASE_DIR}' rug upreb"
 fi
 

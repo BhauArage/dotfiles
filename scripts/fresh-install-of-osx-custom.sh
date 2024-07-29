@@ -8,53 +8,54 @@ type load_zsh_configs &> /dev/null 2>&1 || FIRST_INSTALL=true source "${HOME}/.s
 # Note: Can't run 'exec zsh' here - since the previous function definitions and PATH, etc will be lost in the sub-shell
 load_zsh_configs
 
-! command_exists keybase && echo "Keybase not found in the PATH. Aborting!!!" && exit -1
+# ! command_exists keybase && echo "Keybase not found in the PATH. Aborting!!!" && exit -1
 
-######################
-# Login into keybase #
-######################
-echo "$(green "==> Logging into keybase")"
-if ! keybase login; then
-  echo "Could not login into keybase. Retry again."
-  exit -1
-fi
+# ######################
+# # Login into keybase #
+# ######################
+# echo "$(green "==> Logging into keybase")"
+# keybase login
+# if [ $? -ne 0 ]; then
+#   echo "Could not login into keybase. Retry again."
+#   exit -1
+# fi
 
-#######################
-# Clone the home repo #
-#######################
-echo "$(green "==> Cloning home repo")"
-if non_zero_string "${KEYBASE_USERNAME}" && non_zero_string "${KEYBASE_HOME_REPO_NAME}" && ! var_exists_and_is_directory "${HOME}/.git"; then
-  rm -rf "${HOME}/tmp"
-  mkdir -p "${HOME}/tmp"
-  git clone keybase://private/${KEYBASE_USERNAME}/${KEYBASE_HOME_REPO_NAME} "${HOME}/tmp"
-  mv "${HOME}/tmp/.git" "${HOME}/"
-  rm -rf "${HOME}/tmp"
+# #######################
+# # Clone the home repo #
+# #######################
+# echo "$(green "==> Cloning home repo")"
+# if non_zero_string "${KEYBASE_USERNAME}" && non_zero_string "${KEYBASE_HOME_REPO_NAME}" && ! var_exists_and_is_directory "${HOME}/.git"; then
+#   rm -rf "${HOME}/tmp"
+#   mkdir -p "${HOME}/tmp"
+#   git clone keybase://private/${KEYBASE_USERNAME}/${KEYBASE_HOME_REPO_NAME} "${HOME}/tmp"
+#   mv "${HOME}/tmp/.git" "${HOME}/"
+#   rm -rf "${HOME}/tmp"
 
-  # Checkout files (these should not have any modifications/conflicts with what is in the remote repo)
-  git -C "${HOME}" checkout ".[a-zA-Z]*" personal
+#   # Checkout files (these should not have any modifications/conflicts with what is in the remote repo)
+#   git -C "${HOME}" checkout ".[a-zA-Z]*" personal
 
-  # Reset ssh keys' permissions so that git doesn't complain when using them
-  sudo chmod -R 600 "${HOME}"/.ssh/* || true
+#   # Reset ssh keys' permissions so that git doesn't complain when using them
+#   sudo chmod -R 600 "${HOME}"/.ssh/* || true
 
-  # Fix /etc/hosts file to block facebook #
-  sudo cp "${PERSONAL_BIN_DIR}/macos/etc.hosts" /etc/hosts
-else
-  warn "skipping cloning of home repo since either the 'KEYBASE_USERNAME' and/or the 'KEYBASE_HOME_REPO_NAME' env vars haven't been set or a git repo is already present in '${HOME}'"
-fi
+#   # Fix /etc/hosts file to block facebook #
+#   sudo cp "${PERSONAL_BIN_DIR}/macos/etc.hosts" /etc/hosts
+# else
+#   warn "skipping cloning of home repo since either the 'KEYBASE_USERNAME' and/or the 'KEYBASE_HOME_REPO_NAME' env vars haven't been set or a git repo is already present in '${HOME}'"
+# fi
 
 ###########################
 # Clone the profiles repo #
 ###########################
-echo "$(green "==> Cloning profiles repo")"
-if non_zero_string "${KEYBASE_USERNAME}" && non_zero_string "${KEYBASE_PROFILES_REPO_NAME}" && ! var_exists_and_is_directory "${PERSONAL_PROFILES_DIR}/.git"; then
-  rm -rf "${PERSONAL_PROFILES_DIR}"
-  git clone keybase://private/${KEYBASE_USERNAME}/${KEYBASE_PROFILES_REPO_NAME} "${PERSONAL_PROFILES_DIR}"
+# echo "$(green "==> Cloning profiles repo")"
+# if non_zero_string "${KEYBASE_USERNAME}" && non_zero_string "${KEYBASE_PROFILES_REPO_NAME}" && ! var_exists_and_is_directory "${PERSONAL_PROFILES_DIR}/.git"; then
+#   rm -rf "${PERSONAL_PROFILES_DIR}"
+#   git clone keybase://private/${KEYBASE_USERNAME}/${KEYBASE_PROFILES_REPO_NAME} "${PERSONAL_PROFILES_DIR}"
 
-  # since the above lines will delete the .envrc & .gitignore that were earlier copied into the profiles folder, we will re-run the install script
-  eval "${DOTFILES_DIR}/scripts/install-dotfiles.rb"
-else
-  warn "skipping cloning of profiles repo since either the 'KEYBASE_USERNAME' and/or the 'KEYBASE_PROFILES_REPO_NAME' env vars haven't been set or a git repo is already present in '${PERSONAL_PROFILES_DIR}'"
-fi
+#   # since the above lines will delete the .envrc & .gitignore that were earlier copied into the profiles folder, we will re-run the install script
+#   eval "${DOTFILES_DIR}/scripts/install-dotfiles.rb"
+# else
+#   warn "skipping cloning of profiles repo since either the 'KEYBASE_USERNAME' and/or the 'KEYBASE_PROFILES_REPO_NAME' env vars haven't been set or a git repo is already present in '${PERSONAL_PROFILES_DIR}'"
+# fi
 
 ########################################################
 # Generate the repositories-oss.yml fie if not present #

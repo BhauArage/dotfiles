@@ -8,6 +8,8 @@
 # Note: Even though this will show up twice in `git config -l` - it will still be overridden based on the order of the includeIf lines below (last matching configuration wins)
 [includeIf "gitdir/i:~/"]             # Personal
   path = ~/.gitconfig-oss.inc         # Personal
+[includeIf "gitdir/i:~/dev/tw/"]      # Personal
+  path = ~/.gitconfig-tw.inc          # Personal
 [alias]
   # print the current directory from the context
   currentDir = rev-parse --show-toplevel
@@ -307,3 +309,6 @@
   fsckobjects = false
 [user]
   useConfigOnly = true
+[credential]
+  helper = !aws --profile neev-trainee codecommit credential-helper $@
+  UseHttpPath = true
