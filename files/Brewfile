@@ -22,10 +22,12 @@ is_arm = Hardware::CPU.arm?
 tap 'homebrew/services'
 tap 'romkatv/powerlevel10k'
 
+brew 'awscli'
 brew 'bash'
 brew 'bat'
 brew 'btop'
 brew 'curl'
+brew 'colima'
 brew 'diff-so-fancy'
 brew 'direnv'
 brew 'eza'
@@ -40,6 +42,7 @@ brew 'moreutils'
 brew 'ncdu'
 brew 'powerlevel10k'
 brew 'prettyping'
+brew 'psqlodbc'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'syncthing'
@@ -56,30 +59,19 @@ mas 'iBar-Menubar icon control tool', id: 6443843900
 # mas 'Command X', id: 6448461551
 
 # ----------------------------------------------------------------------------------------------------------
-cask 'aldente'
 cask 'appcleaner'
-cask 'arc'
-cask 'brave-browser@nightly'
 cask 'clocker'
-cask 'cloudflare-warp'
-cask 'firefox@nightly' #, greedy: true
 cask 'font-meslo-lg-nerd-font'
+cask 'google-chrome'
+cask 'insomnia'
+cask 'intellij-idea-ce'
 cask 'iterm2'
-cask 'itsycal'
-cask 'keepassxc@beta'
-cask 'keepingyouawake'
-cask 'keybase'
-cask 'libreoffice'
-cask 'monolingual'
-cask 'notunes'
-cask 'ollama', restart_service: :changed
-cask 'protonvpn'
+cask 'pgadmin4'
 cask 'rancher'
 cask 'raycast'
 cask 'silicon' if is_arm
 cask 'stats'
 cask 'the-unarchiver'
-cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
 cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when comparing to VSCode
 cask 'zoom'
 
@@ -99,6 +91,7 @@ if is_vscode_installed
   vscode 'esbenp.prettier-vscode'
   vscode 'formulahendry.code-runner'
   vscode 'genuitecllc.codetogether'
+  vscode 'golang.go'
   vscode 'ibm.output-colorizer'
   vscode 'mechatroner.rainbow-csv'
   vscode 'mikestead.dotenv'
@@ -113,20 +106,21 @@ if is_vscode_installed
   vscode 'redhat.vscode-yaml'
   vscode 'richie5um2.vscode-sort-json'
   vscode 'shan.code-settings-sync'
-  # vscode 'sonarsource.sonarlint-vscode'
   vscode 'tchayen.markdown-links'
   vscode 'tyriar.sort-lines'
   vscode 'vscjava.vscode-java-debug'
   vscode 'vscjava.vscode-java-pack'
   vscode 'vscjava.vscode-java-test'
-  # This is failing on different machines
-  # vscode 'vscjava.vscode-lombok'
   vscode 'vscode-icons-team.vscode-icons'
   vscode 'wayou.vscode-todo-highlight'
   vscode 'wholroyd.jinja'
   vscode 'wingrunr21.vscode-ruby'
   vscode 'wmaurer.change-case'
   vscode 'yzhang.markdown-all-in-one'
+  # This is failing on different machines
+  # vscode 'vscjava.vscode-lombok'
+  # vscode 'sonarsource.sonarlint-vscode'
+
 end
 
 # ----------------------------------------------------------------------------------------------------------
@@ -168,7 +162,24 @@ end
 # cask 'git-credential-manager'
 
 # ---- casks
+# cask 'aldente'
+
+# cask 'cloudflare-warp'
+# cask 'dupeguru'
 # cask 'dbeaver-community'
+# cask 'itsycal'
+# cask 'keepingyouawake'
+# cask 'keybase'
+# cask 'keycastr'
+# cask 'libreoffice'
+# cask 'licecap'
+# cask 'lulu'
+# cask 'monolingual'
+# cask 'netspot'
+# cask 'ngrok'
+# cask 'notunes'
+# cask 'ollama', restart_service: :changed
+# cask 'onyx'  # Commented out since I'm on the beta version of macos
 # cask 'intellij-idea-ce'
 # cask 'kdiff3'
 # cask 'keycastr'
